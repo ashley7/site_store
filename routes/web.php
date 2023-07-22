@@ -23,7 +23,17 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('issue_stock','IssueController');    
 
-    Route::resource('reports','ReportController');    
+    Route::resource('reports','ReportController');   
+
+    Route::resource('expenses','ExpenseController');
+
+    Route::get('expense_reports','ExpenseController@create');
+
+    Route::post('expense_reports','ExpenseController@expense_reports');
+
+    
+    
+    
 
 });
 

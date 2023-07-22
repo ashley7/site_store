@@ -57,12 +57,25 @@
 
                         <li class="nav-item">
                             <a  class="nav-link" href="{{route('issue_stock.index')}}">STOCK ISSUE</a>
-                        </li>    
-
-                        <li class="nav-item">
-                            <a  class="nav-link" href="{{route('reports.create')}}">STOCK REPORT</a>
-                        </li>  
+                        </li> 
                         
+                        <li class="nav-item">
+                            <a  class="nav-link" href="{{route('expenses.index')}}">EXPENDITURE</a>
+                        </li>
+
+                         
+                        
+                        <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                   REPORT
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a  class="dropdown-item" href="{{route('reports.create')}}">STOCK REPORT</a>
+                                    <a  class="dropdown-item" href="{{route('expenses.create')}}"> EXPENSE REPORT</a>                                  
+                                </div>
+                            </li>
+                                                
                         <li class="nav-item">
                             <a  class="nav-link" href="{{route('users.index')}}">USERS</a>
                         </li>   
@@ -106,6 +119,21 @@
                     {{ session('status') }}
                 </div>
             @endif  
+
+            @if(count($errors->all()) > 0)
+
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            @endif
+
             @yield('content')
         </main>
     </div>

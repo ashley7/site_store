@@ -19,6 +19,7 @@ class CreateExpensesTable extends Migration
             $table->text('particluar');
             $table->double('qunatity');
             $table->double('unit_price');
+            $table->foreignId('user_id')->constrained();
         });
     }
 

@@ -44,6 +44,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{$stock_records->links()}}
                 </div>
                                      
                 </div>
